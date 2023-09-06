@@ -36,9 +36,9 @@ import com.sun.faces.util.Util;
 import jakarta.el.ELContext;
 import jakarta.el.ELContextEvent;
 import jakarta.el.ELContextListener;
-import jakarta.enterprise.context.spi.AlterableContext;
-import jakarta.enterprise.inject.spi.Bean;
-import jakarta.enterprise.inject.spi.BeanManager;
+//import jakarta.enterprise.context.spi.AlterableContext;
+//import jakarta.enterprise.inject.spi.Bean;
+//import jakarta.enterprise.inject.spi.BeanManager;
 import jakarta.faces.FactoryFinder;
 import jakarta.faces.application.Application;
 import jakarta.faces.application.ApplicationFactory;
@@ -509,7 +509,7 @@ public class FacesContextImpl extends FacesContext {
      */
     @Override
     public void release() {
-        BeanManager beanManager = Util.getCdiBeanManager(this);
+//        BeanManager beanManager = Util.getCdiBeanManager(this);
 
         released = true;
         if (externalContext != null) {
@@ -556,8 +556,8 @@ public class FacesContextImpl extends FacesContext {
         DEFAULT_FACES_CONTEXT.remove();
 
         // Destroy our instance produced by FacesContextProducer.
-        Bean<?> bean = beanManager.resolve(beanManager.getBeans(FacesContext.class));
-        ((AlterableContext) beanManager.getContext(bean.getScope())).destroy(bean);
+//        Bean<?> bean = beanManager.resolve(beanManager.getBeans(FacesContext.class));
+//        ((AlterableContext) beanManager.getContext(bean.getScope())).destroy(bean);
     }
 
     /**
